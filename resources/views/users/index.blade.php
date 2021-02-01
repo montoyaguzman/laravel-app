@@ -25,13 +25,20 @@
 
                     <div class="card">
                         <div class="card-body">
+                            @if($errors->any())
+                            <div class="alert alert-danger">
+                                @foreach($errors->all() as $error)
+                                - {{ $error }} <br>
+                                @endforeach
+                            </div>
+                            @endif
                             <form action="{{ route('users.store') }}" method="POST">
                                 <div class="form-row">
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control-plaintext" id="name" name="name" value="nombre">
+                                        <input type="text" class="form-control-plaintext" id="name" name="name" placeholder="nombre" value="{{ old('name') }}">
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control-plaintext" id="email" name="email" value="correo@example.com">
+                                        <input type="text" class="form-control-plaintext" id="email" name="email" placeholder="correo@example.com" value="{{ old('email') }}">
                                     </div>
                                     <div class="col-sm-3">
                                         <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
