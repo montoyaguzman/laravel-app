@@ -24,23 +24,25 @@
                 <div class="col-sm-10 mx-auto">
 
                     <div class="card">
-                        <form action="{{ route('users.store') }}" method="POST">
-                            <div class="form-row">
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control-plaintext" id="name" name="name" value="nombre">
+                        <div class="card-body">
+                            <form action="{{ route('users.store') }}" method="POST">
+                                <div class="form-row">
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control-plaintext" id="name" name="name" value="nombre">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control-plaintext" id="email" name="email" value="correo@example.com">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
+                                    </div>
+                                    <div class="col-auto">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control-plaintext" id="email" name="email" value="correo@example.com">
-                                </div>
-                                <div class="col-sm-3">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
-                                </div>
-                                <div class="col-auto">
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
 
                     <br/>
