@@ -14,12 +14,39 @@
 
     </head>
     <body>
-
         <div class="container">
             <div class="row">
-                <div class="col-sm-8 mx-auto">
-                    <table>
-                        <thead>
+                <h5 class="card-title">Gestión Usuarios</h5>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 mx-auto">
+
+                    <div class="card">
+                        <form action="{{ route('users.store') }}" method="POST">
+                            <div class="form-row">
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control-plaintext" id="name" name="name" value="nombre">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control-plaintext" id="email" name="email" value="correo@example.com">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
+                                </div>
+                                <div class="col-auto">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <br/>
+
+                    <table class="table table-striped">
+                        <thead class="thead-dark text-center">
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
@@ -31,7 +58,7 @@
                             @foreach($users as $user)
                                 <tr>
                                     <th>{{$user->id}}</th>
-                                    <th>{{$user->nombre}}</th>
+                                    <th>{{$user->name}}</th>
                                     <th>{{$user->email}}</th>
                                     <th>
                                         <form action="{{ route('users.destroy', $user) }}" method="POST">
